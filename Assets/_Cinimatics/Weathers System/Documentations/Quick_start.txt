@@ -1,0 +1,137 @@
+ Setup Guide - Advanced Weather System
+
+ 🚀 Quick Setup (1 Minute)
+
+Step 1: Import & Basic Setup
+    1. Import the Weather System package into your HDRP project
+    2. Create an empty GameObject and name it "Weather Manager"
+    3. Add the `CycleManager` script to this GameObject
+
+Step 2: Lighting Setup
+    1. Sun Light:
+        - Create a Directional Light (or use existing)
+        - Set Type to "Sun" in HDRP settings
+        - Assign to "Sun Light" field in CycleManager
+
+    2. Moon Light:
+        - Create another Directional Light
+        - Set lower intensity (around 0.1-0.5)
+        - Assign to "Moon Light" field in CycleManager
+
+Step 3: Volume Setup
+
+    Cloud Volume
+    
+    1. Create > Volume > Global Volume
+    2. Name it "Cloud Volume"
+    3. In Volume component:
+    - Mode: Global
+    - Priority: 1
+    4. Click "New" to create new Volume Profile
+    5. Add Override > Lighting > Volumetric Clouds
+    6. Assign this volume to "Cloud Volume" field in CycleManager
+    
+
+    Sky Volume
+    
+    1. Create > Volume > Global Volume
+    2. Name it "Sky Volume"  
+    3. In Volume component:
+    - Mode: Global
+    - Priority: 2
+    4. Click "New" to create new Volume Profile
+    5. Add Override > Sky > Physically Based Sky
+    6. Assign this volume to "Sky Volume" field in CycleManager
+
+
+Step 4: Particle Systems (Optional)
+    1. Rain Particles:
+        - Create particle system for rain
+        - Set emission rate to 0 initially
+        - Assign to "Rain Particles" field
+
+    2. Snow Particles:
+        - Create particle system for snow
+        - Set emission rate to 0 initially
+        - Assign to "Snow Particles" field
+
+    3. Lightning Particles:
+        - Create particle system for lightning
+        - Set emission rate to 0 initially
+        - Assign to "Lightning Particles" field
+
+Step 5: Test Configuration
+    1. Press Play
+    2. Adjust "Current Time" slider to see day/night transition
+    3. Change "Current Weather" dropdown to test weather effects
+    4. Verify sky darkens during thunderstorms
+
+🔧 Advanced Configuration
+
+    Fine-tuning Sky Exposure
+    - Normal Sky Exposure: 12-15 (bright day)
+    - Storm Sky Exposure: 6-10 (dark storm)
+    - Sky Transition Speed: 1-3 (smooth changes)
+
+    Optimizing Performance
+    - Enable "Low Particle Mode" for mobile
+    - Use "Simplified Weather Intensity" 
+    - Consider "Disable Cloud Updates" for very low-end devices
+
+    Customizing Weather Patterns
+    Adjust seasonal probabilities:
+    - Spring: More rain, less snow
+    - Summer: More thunderstorms, no snow
+    - Autumn: Balanced weather
+    - Winter: More snow, less rain
+
+⚡ Common Issues & Solutions
+
+    Issue: Sky doesn't darken during storms
+    Solution: 
+    - Ensure Sky Volume has Physically Based Sky override
+    - Check exposure values are significantly different
+    - Verify Sky Volume is assigned in inspector
+
+    Issue: Particles don't appear
+    Solution:
+    - Check particle systems are assigned
+    - Verify they're not disabled or have emission rate 0
+    - Ensure materials are assigned to particle renderers
+
+    Issue: Performance problems
+    Solution:
+    - Enable performance optimization flags
+    - Reduce particle emission rates
+    - Consider using fewer weather types
+
+📱 Mobile Optimization
+
+    For mobile devices:
+    1. Enable "Low Particle Mode"
+    2. Set "Simplified Weather Intensity" to true
+    3. Reduce cloud densities by 20-30%
+    4. Use simpler particle effects
+    5. Consider fewer simultaneous weather effects
+
+🎮 Testing Checklist
+
+    - [ ] Sun rotates with time
+    - [ ] Moon appears at night
+    - [ ] Weather changes automatically
+    - [ ] Sky darkens during thunderstorms
+    - [ ] Particles appear for weather types
+    - [ ] Seasonal progression works
+    - [ ] Performance is acceptable
+
+🔗 Next Steps
+
+    1. Customize weather probabilities for your game
+    2. Adjust timing and speeds to match your gameplay
+    3. Add audio effects for weather (not included)
+    4. Consider adding temperature/humidity systems
+    5. Integrate with your game's save system
+
+---
+
+You're all set! Your weather system should now be fully functional with realistic day/night cycles and dramatic thunderstorm effects. 🌩️
